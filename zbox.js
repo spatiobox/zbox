@@ -21,7 +21,7 @@ function loadImg() {
         try {
 
             let img = new Image();
-            img.src = 'fuzhou-metro.jpg';
+            img.src = 'fuzhou-metro.jpg'; 
             img.onload = function () {
                 resolve(img);
             }
@@ -35,12 +35,13 @@ function loadImg() {
 function draw() {
     const box = document.querySelector('#zbox');
     const ctx = box.getContext('2d');
+    window.box = box
 
-    ctx.clearRect(0, 0, 300, 300);
+    ctx.clearRect(0, 0, box.width, box.height);
 
-    loadImg().then(img=>{ console.log('img', img)
-        window. img = img;
-        ctx.drawImage(img, 0, 0, img.width, img.height)
+    loadImg().then(img=>{ 
+        console.log('img', img, img.width, img.height, box.width, box.height, box.scrollWidth, box.scrollHeight);  
+        ctx.drawImage(img, 0, 0, box.width, box.height)
     })
 }
 
