@@ -11,8 +11,8 @@ export default class Ball {
         this.ctx = ctx;
         this.x = x || Math.trunc(Math.random() * 1000);
         this.y = y || Math.trunc(Math.random() * 1000);
-        this.vx = vx || Math.trunc(Math.random() * 10);
-        this.vy = vy || Math.trunc(Math.random() * 10);
+        this.vx = vx || Math.trunc(Math.random() * 20);
+        this.vy = vy || Math.trunc(Math.random() * 20);
         this.radius = radius || 5;
         this.color = color || `rgb(${Math.trunc(Math.random() * 255)}, ${Math.trunc(Math.random() * 255)}, ${Math.trunc(Math.random() * 255)})`;
     }
