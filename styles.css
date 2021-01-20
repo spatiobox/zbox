@@ -1,8 +1,8 @@
 * {
-    
     color: rgb(14, 104, 184);
     margin: 0;
     padding: 0;
+    box-sizing:border-box;
 }
 body{
     position: relative;
@@ -30,35 +30,58 @@ nav {
     margin: 0 auto;
     text-align: center;
     /* line-height: 50px; */
-}
-nav .subtitle {
-    color: rgb(51, 187, 111);
-    display: none;
-}
-nav a {
-    padding: 10px;
-    margin: 10px;
-    text-decoration: none;
-}
+} 
 
-nav a:hover {
-    margin: 20px;
-    text-decoration: none;
-    font-style: italic;
-}
-nav a:hover .subtitle {
-    display: block;
-}
-
-#zbox {
-    width: 100vw;
-    height: 100vh;
+#canvas {
+    width: 100%;
+    height: 100%;
     position: fixed; 
     left: 0;
     top: 0;
-    z-index: -1;
+    z-index: 0;
     /* opacity: 0.3; */
-    background-size: 20px 20px, 20px 20px;
+    /* background-size: 20px 20px, 20px 20px; */
     /* background-image: linear-gradient(90deg, rgb(224,231,254) 1px, transparent 2px),
                     linear-gradient(0, rgb(224,231,254) 1px, transparent 2px);  */
+}
+
+body {  
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 60px calc(100vh - 60px);
+    grid-auto-flow: column;
+ 
+}
+
+body > header {
+    width: 100vw;
+    height: 100%;
+    /* display: grid;
+    grid-template-rows: 100%;  
+    grid-template-columns: 420px auto 120px;  
+    grid-auto-flow: row; */
+    border-bottom: 10px solid steelblue;
+    overflow: hidden;
+}
+
+body > main {
+    /* width: 100%;
+    height: 100%; */
+
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 250px calc(100% - 250px);
+ 
+ 
+}
+
+
+
+body > main > aside {
+    border-right: 10px solid steelblue;
+    border-radius: 1em; 
+    border-top-right-radius: 30% 10%; 
+}
+body > main > content { 
+    padding: 20px;
 }
