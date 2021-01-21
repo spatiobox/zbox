@@ -9,12 +9,12 @@ export default class Ball {
 
     constructor({ ctx, x, y, vx, vy, radius, color } = {}) {
         this.ctx = ctx;
-        this.x = x || Math.trunc(Math.random() * 1000);
-        this.y = y || Math.trunc(Math.random() * 1000);
-        this.vx = vx || Math.trunc(Math.random() * 30);
-        this.vy = vy || Math.trunc(Math.random() * 30);
-        this.radius = radius || 40 || Math.trunc(Math.random() * 10);
-        this.color = color || `rgb(${Math.trunc(Math.random() * 255)}, ${Math.trunc(Math.random() * 255)}, ${Math.trunc(Math.random() * 255)})`;
+        this.x = x || Math.trunc(Math.random() * 1920);
+        this.y = y || Math.trunc(Math.random() * 976);
+        this.vx = vx || Math.trunc(Math.random() * 15);
+        this.vy = vy || Math.trunc(Math.random() * 15);
+        this.radius = radius || 3 ||  Math.trunc(Math.random() * 5);
+        this.color = color || `rgba(${Math.trunc(Math.random() * 255)}, ${Math.trunc(Math.random() * 255)}, ${Math.trunc(Math.random() * 255)}, 0.5)`;
     }
 
     draw() {

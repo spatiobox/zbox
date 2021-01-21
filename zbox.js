@@ -25,11 +25,12 @@ function main() {
     t.innerHTML = new Date();
 
     // raf = window.requestAnimationFrame(draw);
+    draw();
 }
 
 function gen() {
     balls = [];
-    var count = Math.trunc(Math.random() * 120);
+    var count = 100;//4500;// Math.trunc(Math.random() * 5220);
     for (let index = 0; index < count; index++) {
         const ball = new Ball({ ctx });
         balls.push(ball);
@@ -56,52 +57,62 @@ function draw() {
     console.log('img', canvas.width, canvas.height, canvas.scrollWidth, canvas.scrollHeight);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // loadImg().then(img => {
-    //     console.log('img', img, img.width, img.height, canvas.width, canvas.height, canvas.scrollWidth, canvas.scrollHeight);
-    //     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    // });
+    loadImg().then(img => {
+        console.log('img', img, img.width, img.height, canvas.width, canvas.height, canvas.scrollWidth, canvas.scrollHeight);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        var pic = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        console.log('image', pic.data);
+        var data = pic.data;
+        for (var i = 0; i < data.length; i += 4) {
+            data[i] = 255 - data[i];     // red
+            data[i + 1] = 255 - data[i + 1]; // green
+            data[i + 2] = 255 - data[i + 2]; // blue
+        }
+        ctx.putImageData(pic, 0, 0);
+    });
     // clear();
-    for (let i = 0; i < balls.length; i++) {
-        for (let j = balls.length - 1; j > i; j--) {
-            let b1 = balls[i];
-            let b2 = balls[j];
-            let distance = Math.sqrt((b2.x - b1.x) ** 2 + (b2.y - b1.y) ** 2);
-            if (distance < b1.radius + b2.radius) {
-                //碰撞
-                if (b1.x) b1.xy = b1.y / b1.x;
-                if (b2.x) b2.xy = b2.y / b2.x;
-                if (b1.xy === b2.xy) {
-                    b1.vx = -b1.vx;
-                    b1.vy = -b1.vy;
-                    b2.vx = -b2.vx;
-                    b2.vy = -b2.vy;
-                } else {
-                    let vx1 = b1.vx;
-                    b1.vx = b2.vx;
-                    b2.vx = vx1;
-                    let vy1 = b1.vy;
-                    b1.vy = b2.vy;
-                    b2.vy = vy1;
-                }
-            }
-        }
-    }
+    // for (let i = 0; i < balls.length; i++) {
+    //     for (let j = balls.length - 1; j > i; j--) {
+    //         let b1 = balls[i];
+    //         let b2 = balls[j];
+    //         let distance = Math.sqrt((b2.x - b1.x) ** 2 + (b2.y - b1.y) ** 2);
+    //         if (distance < b1.radius + b2.radius) {
+    //             //碰撞
+    //             if (b1.x) b1.xy = b1.y / b1.x;
+    //             if (b2.x) b2.xy = b2.y / b2.x;
+    //             if (b1.xy === b2.xy) {
+    //                 b1.vx = -b1.vx;
+    //                 b1.vy = -b1.vy;
+    //                 b2.vx = -b2.vx;
+    //                 b2.vy = -b2.vy;
+    //             } else {
+    //                 let vx1 = b1.vx;
+    //                 b1.vx = b2.vx;
+    //                 b2.vx = vx1;
+    //                 let vy1 = b1.vy;
+    //                 b1.vy = b2.vy;
+    //                 b2.vy = vy1;
+    //             }
+    //         }
+    //     }
+    // }
 
-    for (const ball of balls) {
-        ball.x += ball.vx;
-        ball.y += ball.vy;
+    // for (const ball of balls) {
+    //     ball.x += ball.vx;
+    //     ball.y += ball.vy;
 
-        if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
-            ball.vy = -ball.vy;
-        }
-        if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
-            ball.vx = -ball.vx;
-        }
-        ball.draw();
-    }
+    //     if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+    //         ball.vy = -ball.vy;
+    //     }
+    //     if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+    //         ball.vx = -ball.vx;
+    //     }
+    //     ball.draw();
+    // }
 
 
-    raf = window.requestAnimationFrame(draw);
+    // raf = window.requestAnimationFrame(draw);
 
 }
 
