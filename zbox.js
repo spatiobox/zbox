@@ -29,7 +29,7 @@ function main() {
 
 function gen() {
     balls = [];
-    var count = Math.trunc(Math.random() * 100);
+    var count = Math.trunc(Math.random() * 120);
     for (let index = 0; index < count; index++) {
         const ball = new Ball({ ctx });
         balls.push(ball);
@@ -61,6 +61,31 @@ function draw() {
     //     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // });
     // clear();
+    for (let i = 0; i < balls.length; i++) {
+        for (let j = balls.length - 1; j > i; j--) {
+            let b1 = balls[i];
+            let b2 = balls[j];
+            let distance = Math.sqrt((b2.x - b1.x) ** 2 + (b2.y - b1.y) ** 2);
+            if (distance < b1.radius + b2.radius) {
+                //碰撞
+                if (b1.x) b1.xy = b1.y / b1.x;
+                if (b2.x) b2.xy = b2.y / b2.x;
+                if (b1.xy === b2.xy) {
+                    b1.vx = -b1.vx;
+                    b1.vy = -b1.vy;
+                    b2.vx = -b2.vx;
+                    b2.vy = -b2.vy;
+                } else {
+                    let vx1 = b1.vx;
+                    b1.vx = b2.vx;
+                    b2.vx = vx1;
+                    let vy1 = b1.vy;
+                    b1.vy = b2.vy;
+                    b2.vy = vy1;
+                }
+            }
+        }
+    }
 
     for (const ball of balls) {
         ball.x += ball.vx;
