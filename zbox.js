@@ -42,7 +42,7 @@ function loadImg() {
         try {
 
             let img = new Image();
-            img.src = 'fuzhou-metro.jpg';
+            img.src = '/assets/images/huian-3.jpg';//'fuzhou-metro.jpg';
             img.onload = function () {
                 resolve(img);
             };
@@ -65,9 +65,33 @@ function draw() {
         console.log('image', pic.data);
         var data = pic.data;
         for (var i = 0; i < data.length; i += 4) {
-            data[i] = 255 - data[i];     // red
-            data[i + 1] = 255 - data[i + 1]; // green
-            data[i + 2] = 255 - data[i + 2]; // blue
+            // TODO 反色
+            // data[i] = 255 - data[i];     // red
+            // data[i + 1] = 255 - data[i + 1]; // green
+            // data[i + 2] = 255 - data[i + 2]; // blue
+
+            // TODO 灰化
+            // var t = (data[i] + data[i + 1] + data[i + 2]) / 3;
+            // // t = (data[i] * 30 + data[i + 1] * 59 + data[i + 2] * 11 + 50) / 100;
+            // // t = (data[i] ** 2.2 * 0.2973 + data[i + 1] ** 2.2 * 0.6274 + data[i + 2] ** 2.2 * 0.0753) ** (1 / 2.2);
+            // data[i] = t;
+            // data[i + 1] = t;
+            // data[i + 2] = t;
+
+            // TODO: 棕褐色
+            // var t = (data[i] + data[i + 1] + data[i + 2]) / 3;
+            // // t = (data[i] * 30 + data[i + 1] * 59 + data[i + 2] * 11 + 50) / 100;
+            // // t = (data[i] ** 2.2 * 0.2973 + data[i + 1] ** 2.2 * 0.6274 + data[i + 2] ** 2.2 * 0.0753) ** (1 / 2.2);
+            // data[i] = t;
+            // data[i + 1] = t;
+            // data[i + 2] = 0;
+            
+            let r = data[i]
+            let g = data[i + 1]
+            let b = data[i + 2]
+            data[i] = (r * 0.393) + (g * 0.769) + (b * 0.189) // red
+            data[i + 1] = (r * 0.349) + (g * 0.686) + (b * 0.168) // green
+            data[i + 2] = (r * 0.272) + (g * 0.534) + (b * 0.131) // blue
         }
         ctx.putImageData(pic, 0, 0);
     });
