@@ -15,46 +15,37 @@
     </div>
 </body>
 <script>
-    export default {
-        data() {
-            return {
-                video: null,
-                canvas: null,
-                ctx: null,
-            };
-        },
-        mounted() {
-            this.video = document.querySelector("video");
-            this.canvas = document.querySelector("canvas");
+    var video = document.querySelector("video");
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
 
-            this.ctx = this.canvas.getContext("2d");
-            try {
-                navigator.mediaDevices
-                    .getUserMedia({ audio: false, video: true })
-                    .then((stream) => {
-                        window.stream = stream;
-                        // this.video.src = URL.createObjectURL(stream);
-                        this.video.srcObject = stream;
-                        this.video.play();
-                    })
-                    .catch((err) => {
-                        var img = new Image();
+    function main() {
+        try {
+            navigator.mediaDevices
+                .getUserMedia({ audio: false, video: true })
+                .then((stream) => {
+                    window.stream = stream;
+                    // video.src = URL.createObjectURL(stream);
+                    video.srcObject = stream;
+                    video.play();
+                })
+                .catch((err) => {
+                    var img = new Image();
 
-                        console.log("err", err);
-                    });
-            } catch (error) {
-                console.log("getUserMedia Rejected!");
-            }
-        },
-        methods: {
-            capture() {
-                var img = new Image();
-                console.log('canvas', this.canvas.width, this.canvas.height);
-                // var h1 = document.querySelector('h1')
-                this.ctx.drawImage(this.video, 0, 0);
-            },
-        },
-    };
+                    console.log("err", err);
+                });
+        } catch (error) {
+            console.log("getUserMedia Rejected!");
+        }
+    }
+
+    function capture() {
+        var img = new Image();
+        console.log('canvas', canvas.width, canvas.height);
+        // var h1 = document.querySelector('h1')
+        ctx.drawImage(video, 0, 0);
+    }
+
 </script>
 
 </html>
