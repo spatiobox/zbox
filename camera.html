@@ -35,7 +35,7 @@
                     console.log("err", err);
                 });
         } catch (error) {
-            console.log("getUserMedia Rejected!");
+            console.log("getUserMedia Rejected!", error);
         }
     }
 
@@ -45,6 +45,7 @@
         // var h1 = document.querySelector('h1')
         ctx.drawImage(video, 0, 0);
     }
+    main();
 
 </script>
 
