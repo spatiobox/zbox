@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        预约
+        <h1>Video:</h1>
+        <video style="width: 100%; height: 100%" @click="capture">Your browser does not support the video tag.</video>
+        <canvas id="canvas" width="1024" height="768" style="width: 100%; height: 100%;"></canvas>
+    </div>
+</body>
+<script>
+    export default {
+        data() {
+            return {
+                video: null,
+                canvas: null,
+                ctx: null,
+            };
+        },
+        mounted() {
+            this.video = document.querySelector("video");
+            this.canvas = document.querySelector("canvas");
+
+            this.ctx = this.canvas.getContext("2d");
+            try {
+                navigator.mediaDevices
+                    .getUserMedia({ audio: false, video: true })
+                    .then((stream) => {
+                        window.stream = stream;
+                        // this.video.src = URL.createObjectURL(stream);
+                        this.video.srcObject = stream;
+                        this.video.play();
+                    })
+                    .catch((err) => {
+                        var img = new Image();
+
+                        console.log("err", err);
+                    });
+            } catch (error) {
+                console.log("getUserMedia Rejected!");
+            }
+        },
+        methods: {
+            capture() {
+                var img = new Image();
+                console.log('canvas', this.canvas.width, this.canvas.height);
+                // var h1 = document.querySelector('h1')
+                this.ctx.drawImage(this.video, 0, 0);
+            },
+        },
+    };
+</script>
+
+</html>

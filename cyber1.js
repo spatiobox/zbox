@@ -1,5 +1,6 @@
 main();
 function main() {
+    /** @type {HTMLCanvasElement} */
     const canvas = document.querySelector('#canvas');
     const ctx = canvas.getContext('webgl');
 

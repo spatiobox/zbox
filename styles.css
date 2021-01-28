@@ -133,8 +133,8 @@ body > main > content {
     /* background-color: #67CF22; */
    
     /* margin: 100px auto; */
-    -webkit-animation: rotateplane 1.2s infinite ease-in-out;
-    animation: rotateplane 1.2s infinite ease-in-out;
+    -webkit-animation: rotateplane 15s infinite ease-in-out;
+    animation: rotateplane 15s infinite ease-in-out;
   }
    
   @-webkit-keyframes rotateplane {
