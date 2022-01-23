@@ -1,5 +1,8 @@
 {
   "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
   "forwardPorts": [3000],
-  "extensions": ["dbaeumer.vscode-eslint"]
+  "extensions": ["dbaeumer.vscode-eslint"],
+  "features": {
+    "github-cli": "latest"
+  }
 }
