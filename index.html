@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
-        <div class="logo"> 
+        <div class="logo">
             <span class="spinner">X</span>libris
         </div>
         <div class="banner">
@@ -22,15 +22,26 @@
 
         </div>
     </header>
+    <nav>
 
-    <main>
-        <aside>
-            <nav>
+    </nav>
 
-            </nav>
-        </aside>
-        <content>
+    <div class="main">
+        <div class="content">
+
+            <div>
+
+                <img class="absolute inset-0 w-full bg-cover bg-center bg-no-repeat lazyloaded" style="width: 100%;
+            opacity: 0.7;
+            border-radius: 8px;"
+                    data-srcset="https://cdn.clarify.graphics/2023/03/31105119/cardsFade-2048x2665.jpg 2048w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-1680x2186.jpg 1680w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-1440x1874.jpg 1440w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-1440x1874@2x.jpg 2880w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-1152x1499.jpg 1152w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-1152x1499@2x.jpg 2304w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-768x999.jpg 768w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-768x999@2x.jpg 1536w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-576x749.jpg 576w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-576x749@2x.jpg 1152w"
+                    sizes="(min-width: 1680px) 2048px, (min-width: 1440px) 1680px, (min-width: 1152px) 1440px, (min-width: 768px) 1152px, (min-width: 576px) 768px, (min-width: 0px) 576px, 100vw"
+                    alt=""
+                    srcset="https://cdn.clarify.graphics/2023/03/31105119/cardsFade-2048x2665.jpg 2048w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-1680x2186.jpg 1680w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-1440x1874.jpg 1440w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-1440x1874@2x.jpg 2880w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-1152x1499.jpg 1152w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-1152x1499@2x.jpg 2304w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-768x999.jpg 768w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-768x999@2x.jpg 1536w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-576x749.jpg 576w, https://cdn.clarify.graphics/2023/03/31105119/cardsFade-576x749@2x.jpg 1152w">
+            </div>
             <time pubdate>234234</time>
+            <div>
+
             <pre class="best-text mb-10" data-index="1" name="code">
                 <span style="color:#000000;font-family:Verdana, Arial;line-height:25.1875px;background-color:#ffffff;"></span>
                 下面是其他符号的读法
@@ -100,10 +111,15 @@
                 ＠at 单价
                 ` backquote 反引号
             </pre>
-        </content>
-    </main>
+            </div>  
+        </div>
+        <div class="aside">
+            <div class="card" style="width: 100%; height: 250px; padding: 30px;"></div>
+
+        </div>
+    </div>
     <canvas id="canvas" width="1920" height="976"></canvas>
-    <!-- <script type="module" src="zbox.js"></script> --> 
+    <!-- <script type="module" src="zbox.js"></script> -->
     <script src="gl-matrix-min.js" defer></script>
     <script type="module" src="cyber3.js"></script>
 </body>
