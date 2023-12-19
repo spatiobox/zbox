@@ -1,10 +1,13 @@
-
 * {
   color: rgb(14, 104, 184);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: roboto, Georgia, 'Times New Roman', Times, serif;
+}
+
+:root {
+  --header-height: 64px;
 }
 
 @font-face {
@@ -85,7 +88,7 @@ header {
   /* align-items: center; */
   overflow: hidden;
   position: fixed;
-z-index: 1;
+  z-index: 1;
   top: 0;
   left: 0;
   right: 0;
@@ -99,6 +102,36 @@ header .logo {
   padding: 1rem 3rem;
   justify-self: center;
   /* margin-left:  20px; */
+}
+
+header nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+header nav a {
+  color: #000;
+  font-size: 1rem;
+  padding: 0rem 2rem;
+  line-height: calc(var(--header-height) - 6px);
+  border: 3px solid transparent;
+  text-decoration: none;
+  /* justify-self: center; */
+
+  /* margin-left:  20px; */
+}
+
+header nav a:hover {
+  cursor: pointer;
+  border-top: 3px solid rgb(118, 197, 149);
+  text-shadow:
+    -1px -1px 1px #ccc,
+    1px 1px 1px rgb(118, 197, 149);
+  /* border-top: 3px solid rgba(249, 207, 99); */
+  /* border-bottom: 1px solid rgb(118, 197, 149); */
 }
 
 header .banner {
@@ -212,19 +245,20 @@ header .banner {
   background-size: 15px 15px, 15px 15px;
   background-image: linear-gradient(90deg, rgba(224, 231, 254, 0.5) 1px, transparent 2px),
     linear-gradient(0, rgba(224, 231, 254, 0.5) 1px, transparent 2px);
-  
+
   border-radius: 6px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 18px 36px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -12px inset;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
   background-image: linear-gradient(90deg, rgba(224, 231, 254, .5) 1px, transparent 2px),
     linear-gradient(0, rgba(224, 231, 254, .5) 1px, transparent 2px);
-    display: flex;
-    flex-flow: column nowrap;
+  display: flex;
+  flex-flow: column nowrap;
   overflow: hidden;
 
 }
-.card > .content {
+
+.card>.content {
   flex: 1 1 auto;
 
   height: calc(100% - 36px);
@@ -234,7 +268,7 @@ header .banner {
   align-items: center;
 }
 
-.card > .content > .avatar { 
+.card>.content>.avatar {
   width: 130px;
   height: 130px;
   display: flex;
@@ -243,14 +277,15 @@ header .banner {
   border-radius: 80px;
   overflow: hidden;
 
-   box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 
 
 }
-.card > .footer {
+
+.card>.footer {
   flex: 1 1 auto;
-  height: 36px; 
+  height: 36px;
   font-size: 18px;
 
   display: flex;
@@ -258,5 +293,5 @@ header .banner {
   align-items: center;
   background: rgba(249, 207, 99);
   color: white;
-  
+
 }
