@@ -309,11 +309,11 @@ header .banner {
 
 }
 
-.half-box { 
+.half { 
 }
 
-.half-box header > .wrapper,
-.half-box .main
+.half header > .wrapper,
+.half .main
  {
   max-width: 1366px;
   margin: 0 auto;
