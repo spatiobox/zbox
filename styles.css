@@ -76,16 +76,16 @@ nav {
 header {
   width: 100%;
   height: 64px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
   /* display: grid; */
   /* grid-template-rows: 100%;
   grid-template-columns: 250px auto 120px; */
   /* grid-auto-flow: row; */
   /* border-bottom: 3px solid steelblue; */
   /* align-items: center; */
+  /* display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center; */
   overflow: hidden;
   position: fixed;
   z-index: 1;
@@ -95,6 +95,16 @@ header {
   background: #fff;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
+}
+header > .wrapper { 
+  width: 100%;
+  height: 64px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 header .logo {
@@ -297,4 +307,14 @@ header .banner {
   box-shadow: rgba(249, 207, 99, 0.75) 0px 30px 60px 0px;
   /* , rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
 
+}
+
+.half-box { 
+}
+
+.half-box header > .wrapper,
+.half-box .main
+ {
+  max-width: 1366px;
+  margin: 0 auto;
 }
