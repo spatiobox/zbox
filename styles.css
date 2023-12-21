@@ -170,7 +170,7 @@ header .banner {
 
 
 .main>.aside {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   width: 250px;
   padding: 20px;
   /* border-right: 1px solid steelblue; */
@@ -253,7 +253,7 @@ header .banner {
 }
 
 .card {
-  height: 230px;
+  min-height: 230px;
   background-size: 15px 15px, 15px 15px;
   background-image: linear-gradient(90deg, rgba(224, 231, 254, 0.5) 1px, transparent 2px),
     linear-gradient(0, rgba(224, 231, 254, 0.5) 1px, transparent 2px);
