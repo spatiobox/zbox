@@ -183,7 +183,7 @@ main>aside {
   border-radius: 8px;
 }
 
-main > content {
+main>content {
   flex: 1 1 auto;
   width: calc(100% - 250px - 20px);
   margin-right: 10px;
@@ -197,6 +197,7 @@ main > content {
   display: flex;
   flex-flow: column;
 }
+
 article {
   flex: 1 1 auto;
   padding: 40px;
@@ -206,6 +207,7 @@ article {
   background: rgba(255, 255, 255, 0.8);
 
 }
+
 article:not(:first-child) {
   margin-top: 20px;
 }
@@ -285,7 +287,7 @@ article:not(:first-child) {
 
 }
 
-.card>content {
+.card>.content {
   flex: 1 1 auto;
 
   height: calc(100% - 36px);
@@ -295,7 +297,7 @@ article:not(:first-child) {
   align-items: center;
 }
 
-.card>content>.avatar {
+.card>.content>.avatar {
   width: 130px;
   height: 130px;
   display: flex;
